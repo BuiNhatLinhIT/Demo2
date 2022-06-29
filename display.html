@@ -66,13 +66,13 @@
 
 
 
-                <div class="form2">
+                <div class="form4">
                     <label for="age">Patient Age</label><br>
                     <input type="number" class="form-control" placeholder="" id="age" name="age">
                 </div>
 
 
-                <div class="form2">
+                <div class="form4">
                     <label for="nick">Prefered Name / Nickname</label><br>
                     <input type="text" class="form-control" placeholder="" id="nick" name="nick">
                 </div>
@@ -124,44 +124,154 @@
 
                 <div class="form4">
                     <label for="occ">Occupation</label><br>
-                    <input style="margin-left: -5px;" type="text" class="form-control" placeholder="If retired or disabled enter your last occupation" id="occ" name="occ">
+                    <input type="text" class="form-control"
+                        placeholder="If retired or disabled enter your last occupation" id="occ" name="occ">
+                </div>
+
+       <div>
+                <br>
+                <span>Disability ?</span><br>
+
+                <input type="radio" id="yes" name="status" onclick="handleClick(true)">
+                <label for="yes">Yes</label> <br>
+                <input type="radio" id="no" name="status" onclick="handleClick(false)">
+                <label for="no">No</label>
+                <div id="abcd">
+                    <label for="occ">Date of disability</label><br>
+                    <input type="date" class="form-control" placeholder="" id="date" name="date">
+                </div>
+
+
+                <script>
+                    let result = document.querySelector('#status');
+                    const div = document.querySelector('#abcd');
+
+                    function handleClick(value) {
+                        const div = document.querySelector('#abcd');
+                        if (value) {
+                            div.style.display = 'block';
+                        } else {
+                            div.style.display = 'none';
+                        }
+                    }
+                </script>
+
+                  </div>
+
+
+
+                <div class="form4">
+                    <label for="who">Who is your primary care doctor:</label><br>
+                    <input type="text" class="form-control" placeholder="" id="who" name="who">
+                </div>
+
+
+                <div class="form4">
+                    <label for="where">Where is your primary care doctor located ?</label><br>
+                    <input type="text" class="form-control" placeholder="" id="where" name="where">
+                </div>
+
+
+                <div class="form4">
+                    <label for="pnumber">Phone Number of primary care doctor:</label><br>
+                    <input type="number" class="form-control" placeholder="" id="pnumber" name="pnumber">
                 </div>
 
 
 
+
+                <br>
+                <span>allergic to any medications</span><br>
+
+                <input type="radio" id="yes" name="st" onclick="handleClick(true)">
+                <label for="yes">Yes</label> <br>
+                <input type="radio" id="no" name="st" onclick="handleClick(false)">
+                <label for="no">No</label>
+                <div id="abc">
+                    <label for="all">allergic to any medications</label><br>
+                    <input type="text" class="form-control" placeholder="" id="all" name="all">
+                </div>
+
+
+                <script>
+                    let kq = document.querySelector('#st');
+                    const v = document.querySelector('#abc');
+
+                    function handleClick(value) {
+                        const v = document.querySelector('#abc');
+                        if (value) {
+                            v.style.display = 'block';
+                        } else {
+                            v.style.display = 'none';
+                        }
+                    }
+                </script>
+
+
+
+
+                <br>
+                <span>Do you smoke?</span><br>
+
+                <input type="radio" id="yes" name="smoke" onclick="handleClick(true)">
+                <label for="yes">Yes</label> <br>
+                <input type="radio" id="no" name="smoke" onclick="handleClick(false)">
+                <label for="no">No</label>
+                <div id="ab">
+                    <label for="how">How many years did you smoke?</label><br>
+                    <input type="text" class="form-control" placeholder="" id="how" name="how">
+                </div>
+
+
+                <script>
+                    let q = document.querySelector('#smoke');
+                    const i = document.querySelector('#ab');
+
+                    function handleClick(value) {
+                        const i = document.querySelector('#ab');
+                        if (value) {
+                            i.style.display = 'block';
+                        } else {
+                            i.style.display = 'none';
+                        }
+                    }
+                </script>
+
+
+
+
+
+                <div class="form4">
+                    <label for="if">If you quit, when did you stop?</label><br>
+                    <input type="text" class="form-control" placeholder="" id="if" name="if">
+                </div>
+
                 
 
 
+                <div class="form4">
+                    <label for="do">Do you drink alcohol?</label><br>
+                    <input type="text" class="form-control" placeholder="" id="do" name="do">
+                </div>
 
 
+                <div class="form5">
+                    <label for="textarea">Personal opinion</label>
+                    <textarea class="form-control" id="textarea" rows="4"></textarea>
+                  </div>
 
 
+               <br>
+                <div class="submit">
+                  <button type="submit" class="btn btn-primary">Submit Form</button>
+               </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+               
             </div>
         </div>
     </form>
 </body>
 
 </html>
+

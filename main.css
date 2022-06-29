@@ -29,7 +29,7 @@
 
 .form3{
     margin-top: 10px;
-    margin-left: -10px;
+    margin-left: -12px;
 }
 
 .form4{
@@ -39,4 +39,12 @@
 .list{
    margin-left: -10px;
    margin-top: -10px;
+}
+
+.form5{
+    margin-top: 10px;
+}
+.submit{
+    margin-top: 10px;
+    padding-top: 20px;
 }
