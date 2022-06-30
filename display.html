@@ -18,6 +18,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="main.css" />
 
+    <script src="bh.js"></script>
 
 </head>
 
@@ -64,7 +65,7 @@
                     </div>
                 </div>
 
-
+                <button type = "submit" id = "kiemtra"  onclick = "checkSDT()">SM</button>
 
                 <div class="form4">
                     <label for="age">Patient Age</label><br>
@@ -82,7 +83,7 @@
                     <div class="col-auto my-1">
                         <label class="mr-sm-2" for="gender">Patient Gender</label>
                         <select class="custom-select mr-sm-2" id="gender">
-                            <option selected>-Select-</option>
+                            <option>-Select-</option>
                             <option value="1">Male</option>
                             <option value="2">Female</option>
                             <option value="3">Others</option>
@@ -92,9 +93,11 @@
 
 
                 <div class="form4">
-                    <label for="phone">Phone no.</label><br>
-                    <input type="number" class="form-control" placeholder="" id="phone" name="phone">
+                    Phone no.<br>
+                    <input type="tel" id="sdt" class="form-control" required>
+                    <div id="loidt" style="color: red; font-size: 12px;"></div>
                 </div>
+
 
 
                 <div class="form4">
@@ -128,35 +131,35 @@
                         placeholder="If retired or disabled enter your last occupation" id="occ" name="occ">
                 </div>
 
-       <div>
-                <br>
-                <span>Disability ?</span><br>
+                <div>
+                    <br>
+                    <span>Disability ?</span><br>
 
-                <input type="radio" id="yes" name="status" onclick="handleClick(true)">
-                <label for="yes">Yes</label> <br>
-                <input type="radio" id="no" name="status" onclick="handleClick(false)">
-                <label for="no">No</label>
-                <div id="abcd">
-                    <label for="occ">Date of disability</label><br>
-                    <input type="date" class="form-control" placeholder="" id="date" name="date">
-                </div>
+                    <input type="radio" id="yes" name="status" onclick="handleClick(true)">
+                    <label for="yes">Yes</label> <br>
+                    <input type="radio" id="no" name="status" onclick="handleClick(false)">
+                    <label for="no">No</label>
+                    <div id="abcd">
+                        <label for="occ">Date of disability</label><br>
+                        <input type="date" class="form-control" placeholder="" id="date" name="date">
+                    </div>
 
 
-                <script>
-                    let result = document.querySelector('#status');
-                    const div = document.querySelector('#abcd');
-
-                    function handleClick(value) {
+                    <script>
+                        let result = document.querySelector('#status');
                         const div = document.querySelector('#abcd');
-                        if (value) {
-                            div.style.display = 'block';
-                        } else {
-                            div.style.display = 'none';
-                        }
-                    }
-                </script>
 
-                  </div>
+                        function handleClick(value) {
+                            const div = document.querySelector('#abcd');
+                            if (value) {
+                                div.style.display = 'block';
+                            } else {
+                                div.style.display = 'none';
+                            }
+                        }
+                    </script>
+
+                </div>
 
 
 
@@ -246,7 +249,7 @@
                     <input type="text" class="form-control" placeholder="" id="if" name="if">
                 </div>
 
-                
+
 
 
                 <div class="form4">
@@ -258,20 +261,19 @@
                 <div class="form5">
                     <label for="textarea">Personal opinion</label>
                     <textarea class="form-control" id="textarea" rows="4"></textarea>
-                  </div>
+                </div>
 
 
-               <br>
-                <div class="submit">
-                  <button type="submit" class="btn btn-primary">Submit Form</button>
-               </div>
+                <br>
+                <div>
+
+                </div>
 
 
-               
+
             </div>
         </div>
     </form>
 </body>
 
 </html>
-
