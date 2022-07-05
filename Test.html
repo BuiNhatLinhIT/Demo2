@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+  <meta charset="UTF-8">
+  <script language="JavaScript">
+    function showInput() {
+        document.getElementById('display').innerHTML = 
+                    document.getElementById("user_input").value;
+    }
+    function checkSDT(){
+        document.getElementById('display').innerHTML = document.getElementById("phone").value;
+    }
+    function age(){
+        document.getElementById('display').innerHTML = document.getElementById("age").value;
+    }
+   
+  
+  </script>
+ 
+
+  </head>
+<body>
+
+  <form>
+    <label><b>Enter a Message</b></label>
+    <input type="text" name="message" id="user_input"><br><br>
+
+    <input type="number" name="cde" id="phone"><br><br>
+    <input type="date" name="cd" id="age"><br>
+  </form>
+
+  <input type="submit" onclick="showInput(); ;"><br/>
+  <label>Your input: </label>
+  <p><span id='display'></span></p>

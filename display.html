@@ -43,9 +43,7 @@
 
 
             <div class="form">
-
                 <div class="form1">
-
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 col-xs-12">
@@ -57,7 +55,7 @@
 
                             <div class="col-md-6 col-xs-12">
                                 <div class="lastname">
-                                    <label for="lname">First Name</label><br>
+                                    <label for="lname">Last Name</label><br>
                                     <input type="text" class="form-control" placeholder="" id="lname" name="lname">
                                 </div>
                             </div>
@@ -65,11 +63,12 @@
                     </div>
                 </div>
 
-                <button type = "submit" id = "kiemtra"  onclick = "checkSDT()">SM</button>
+                <!-- <button type = "submit" id = "kiemtra"  onclick = "checkSDT()">SM</button> -->
 
                 <div class="form4">
-                    <label for="age">Patient Age</label><br>
+                    <label for="age">Patient Age <span class="required">*</span> </label><br>
                     <input type="number" class="form-control" placeholder="" id="age" name="age">
+                    <span id="age_error"></span>
                 </div>
 
 
@@ -81,21 +80,25 @@
 
                 <div class="form3">
                     <div class="col-auto my-1">
-                        <label class="mr-sm-2" for="gender">Patient Gender</label>
+                        <label class="mr-sm-2" for="gender">Patient Gender <span class="required">*</span> </label>
                         <select class="custom-select mr-sm-2" id="gender">
-                            <option>-Select-</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                            <option value="3">Others</option>
+                            <option value="" selected disabled hidden>-Select-</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Others</option>
                         </select>
+                        <span id="gender_error"></span>
+                        
                     </div>
                 </div>
 
 
                 <div class="form4">
-                    Phone no.<br>
-                    <input type="tel" id="sdt" class="form-control" required>
-                    <div id="loidt" style="color: red; font-size: 12px;"></div>
+                    <!-- <input type="tel" id="sdt" class="form-control" required>
+                    <div id="loidt" style="color: red; font-size: 12px;"></div> -->
+                    <label for="phone">Phone no. <span class="required">*</span> </label><br>
+                    <input type="number" class="form-control" placeholder="" id="phone" name="phone">
+                    <span id="phone_error"></span>
                 </div>
 
 
@@ -113,15 +116,37 @@
 
 
                 <div>
-                    <p style="margin-top: 12px;">Marital Status</p>
-                    <div class="list">
+                    <p style="margin-top: 12px;">Marital Status <span class="required">*</span></p>
+                    <div id="list">
                           <input type="radio" id="mari" name="language" value="Married">
                           <label for="mari">Married</label><br>
                           <input type="radio" id="un" name="language" value="Unmarried">
                           <label for="un">Unmarried</label><br>
                           <input type="radio" id="ot" name="language" value="other">
                           <label for="ot">other</label>
+                        <br>
+                        <span id="maristt_error"></span>
+                        <div id = "m_other">
+                            <label class="hidden">Marital status (other) <span class="required">*</span></label><br>
+                            <input type="text" class="form-control" placeholder="" id="other" name="other">
+                            <span id="other_error"></span>
+                        </div>
+                        
                     </div>
+                    <script language="javascript">
+ 
+                        document.getElementById("un").onclick = function () {
+                            document.getElementById("m_other").style.display = 'none';
+                        };
+                        document.getElementById("mari").onclick = function () {
+                            document.getElementById("m_other").style.display = 'none';
+                        };
+             
+                        document.getElementById("ot").onclick = function () {
+                            document.getElementById("m_other").style.display = 'block';
+                        };
+             
+                    </script>
                 </div>
 
 
@@ -130,37 +155,59 @@
                     <input type="text" class="form-control"
                         placeholder="If retired or disabled enter your last occupation" id="occ" name="occ">
                 </div>
+                
 
                 <div>
                     <br>
-                    <span>Disability ?</span><br>
+                    <span>Retired?</span> <span class="required">*</span><br>
 
-                    <input type="radio" id="yes" name="status" onclick="handleClick(true)">
+                    <input type="radio" id="yes" name="status" value="Yes">
                     <label for="yes">Yes</label> <br>
-                    <input type="radio" id="no" name="status" onclick="handleClick(false)">
+                    <input type="radio" id="no" name="status" value="No">
                     <label for="no">No</label>
+                    <br>
+                    <span id="ret_error"></span>
                     <div id="abcd">
-                        <label for="occ">Date of disability</label><br>
+                        <label for="occ">Date of retirement</label><br>
                         <input type="date" class="form-control" placeholder="" id="date" name="date">
                     </div>
 
-
                     <script>
-                        let result = document.querySelector('#status');
-                        const div = document.querySelector('#abcd');
-
-                        function handleClick(value) {
-                            const div = document.querySelector('#abcd');
-                            if (value) {
-                                div.style.display = 'block';
-                            } else {
-                                div.style.display = 'none';
-                            }
-                        }
+                        document.getElementById("no").onclick = function () {
+                            document.getElementById("abcd").style.display = 'none';
+                        };
+             
+                        document.getElementById("yes").onclick = function () {
+                            document.getElementById("abcd").style.display = 'block';
+                        };
                     </script>
 
                 </div>
 
+                <div>
+                    <br>
+                    <span>Disability?</span> <span class="required">*</span><br>
+
+                    <input type="radio" id="yes1" name="status1" value="Yes">
+                    <label for="yes">Yes</label> <br>
+                    <input type="radio" id="no1" name="status1" value="No">
+                    <label for="no">No</label>
+                    <br>
+                    <span id="dis_error"></span>
+                    <div id="abcd1">
+                        <label for="occ">Date of disability</label><br>
+                        <input type="date" class="form-control" placeholder="" id="date1" name="date1">
+                    </div>
+                    <script>
+                        document.getElementById("no1").onclick = function () {
+                            document.getElementById("abcd1").style.display = 'none';
+                        };
+             
+                        document.getElementById("yes1").onclick = function () {
+                            document.getElementById("abcd1").style.display = 'block';
+                        };
+                    </script>
+                </div>
 
 
                 <div class="form4">
@@ -170,7 +217,7 @@
 
 
                 <div class="form4">
-                    <label for="where">Where is your primary care doctor located ?</label><br>
+                    <label for="where">Where is your primary care doctor located?</label><br>
                     <input type="text" class="form-control" placeholder="" id="where" name="where">
                 </div>
 
@@ -180,76 +227,55 @@
                     <input type="number" class="form-control" placeholder="" id="pnumber" name="pnumber">
                 </div>
 
-
-
-
                 <br>
                 <span>allergic to any medications</span><br>
 
-                <input type="radio" id="yes" name="st" onclick="handleClick(true)">
+                <input type="radio" id="yes2" name="st" value="Yes">
                 <label for="yes">Yes</label> <br>
-                <input type="radio" id="no" name="st" onclick="handleClick(false)">
+                <input type="radio" id="no2" name="st" value="No">
                 <label for="no">No</label>
-                <div id="abc">
+                <div id="abcd2">
                     <label for="all">allergic to any medications</label><br>
                     <input type="text" class="form-control" placeholder="" id="all" name="all">
                 </div>
-
-
                 <script>
-                    let kq = document.querySelector('#st');
-                    const v = document.querySelector('#abc');
-
-                    function handleClick(value) {
-                        const v = document.querySelector('#abc');
-                        if (value) {
-                            v.style.display = 'block';
-                        } else {
-                            v.style.display = 'none';
-                        }
-                    }
+                    document.getElementById("no2").onclick = function () {
+                        document.getElementById("abcd2").style.display = 'none';
+                    };
+             
+                    document.getElementById("yes2").onclick = function () {
+                        document.getElementById("abcd2").style.display = 'block';
+                    };
                 </script>
-
-
-
 
                 <br>
                 <span>Do you smoke?</span><br>
 
-                <input type="radio" id="yes" name="smoke" onclick="handleClick(true)">
+                <input type="radio" id="yes3" name="smoke" value="Yes">
                 <label for="yes">Yes</label> <br>
-                <input type="radio" id="no" name="smoke" onclick="handleClick(false)">
+                <input type="radio" id="no3" name="smoke" value="No">
                 <label for="no">No</label>
-                <div id="ab">
+                <div id="abcd3">
                     <label for="how">How many years did you smoke?</label><br>
-                    <input type="text" class="form-control" placeholder="" id="how" name="how">
+                    <input type="text" class="form-control" placeholder="" id="howm" name="how">
                 </div>
 
 
                 <script>
-                    let q = document.querySelector('#smoke');
-                    const i = document.querySelector('#ab');
-
-                    function handleClick(value) {
-                        const i = document.querySelector('#ab');
-                        if (value) {
-                            i.style.display = 'block';
-                        } else {
-                            i.style.display = 'none';
-                        }
-                    }
+                    document.getElementById("no3").onclick = function () {
+                        document.getElementById("abcd3").style.display = 'none';
+                    };
+             
+                    document.getElementById("yes3").onclick = function () {
+                        document.getElementById("abcd3").style.display = 'block';
+                    };
                 </script>
-
-
-
 
 
                 <div class="form4">
                     <label for="if">If you quit, when did you stop?</label><br>
                     <input type="text" class="form-control" placeholder="" id="if" name="if">
                 </div>
-
-
 
 
                 <div class="form4">
@@ -263,17 +289,19 @@
                     <textarea class="form-control" id="textarea" rows="4"></textarea>
                 </div>
 
-
                 <br>
+                <input type="submit" onclick="event.preventDefault(); onClick(); return validate();" id="btn" name="btn" value="Submit Form"/>
+                
                 <div>
-
                 </div>
-
-
-
             </div>
+            <!--  -->
+            
         </div>
+        
     </form>
+
+    <div id = "result"></div>
 </body>
 
 </html>
