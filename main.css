@@ -48,3 +48,23 @@
     margin-top: 10px;
     padding-top: 20px;
 }
+
+.required {
+    color: red;
+    font-size: 18px;
+    margin-left: 2px;
+}
+#age_error, #gender_error, #phone_error, #maristt_error, #other_error, #ret_error, #dis_error {
+    color:red;
+    display: block;
+    padding: 5px 0px;
+}
+#m_other, #abcd, #abcd1, #abcd2, #abcd3 {
+    display: none;
+}
+
+#result {
+    color: royalblue;
+    font-size: 20px;
+    margin-left: 300px;
+}
