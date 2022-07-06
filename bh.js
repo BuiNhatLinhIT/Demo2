@@ -44,12 +44,21 @@ function validate()
 {
     var flag = true;
      
+    // 0. email
+    var email = getValue('email');
+    if (email == ''){
+        flag = false;
+        showError('email', 'This field is required');
+    }
+     
     // 1. age
     var age = getValue('age');
     if (age == ''){
         flag = false;
         showError('age', 'This field is required');
     }
+
+
      
     // 2. gender
     var gender = getValue('gender');
@@ -104,6 +113,7 @@ function onClick()
 {
     var fname = document.getElementById('fname').value;
     var lname = document.getElementById('lname').value;
+    var email = document.getElementById('email').value;
     var age = document.getElementById('age').value;
     var nickname = document.getElementById('nick').value;
     var gender = document.getElementById('gender').value;
@@ -118,6 +128,7 @@ function onClick()
     var doo = document.getElementById('do').value;
     var tex = document.getElementById('textarea').value;
     var result = document.getElementById('result');
+    console.log("Tên first name là:"+fname);
 
     function getMarital()
     {
@@ -208,10 +219,26 @@ function onClick()
             }
         }
     }
+
+    function getcheckEmail(){
+        var email = document.getElementById("email").value;
+        var aCong = email.indexOf("@");
+        var dauCham = email.lastIndexOf(".");
+        
+        if ((aCong<1) || (dauCham<aCong+2) || (dauCham+2>email.length)) {
+          document.getElementById("email_error").innerHTML="Email bạn điền không chính xác";
+            return false;
+        }
+        else{
+            document.getElementById("email_error").innerHTML="Bạn đã nhập đúng định dạng";
+        }
+    }
+
+
     
 
     result.innerHTML = '<p>RESULTS TAKEN FROM FORM</p>'+ '<p>First Name: ' + fname + '</p>'
-                        + '<p>Last Name: ' + lname + '</p>' + '<p>Patient Age: ' + age + '<p>Prefered Name / Nickname: '+ nickname + '</p>'
+                        + '<p>Last Name: ' + lname + '</p>' +'<p> Your name Email:' +  getcheckEmail() + '</p>'  +'<p>Patient Age: ' + age + '<p>Prefered Name / Nickname: '+ nickname + '</p>'
                         + '<p>Gender: ' + gender + '</p>' + '<p>Phone Number: ' + phone + '</p>'+ '<p>Spouce Name: ' + spouce + '</p>'
                         + '<p>With whome do you live: ' + live + '</p>' + '<p>Marital Status: ' + getMarital() + '</p>'
                         + '<p>Occupation: ' + occ + '</p>' + '<p>Retired: ' + getRetired() + '</p>' + '<p>Disability: ' + getDisability() + '</p>'
